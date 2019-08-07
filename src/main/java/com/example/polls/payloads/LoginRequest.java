@@ -22,3 +22,7 @@ public class LoginRequest {
 
 
 }
+/**{
+"accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNTQ4MDg2NTM2LCJleHAiOjE1NDg2OTEzMzZ9.mda2SA-AOfvWdxu6EuG2t5Ir-wjB2zk7LQqS0kzEQTdxEHe63OYmdZbwUuv26zl9IeRUDddEFnjyEHYseT7kKg",
+"tokenType": "Bearer"
+}**/

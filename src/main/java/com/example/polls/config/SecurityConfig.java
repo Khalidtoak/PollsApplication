@@ -80,6 +80,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js")
                         .permitAll()
+                        .antMatchers("/custom","/custom/**","/swagger-resources/**","/v2/api-docs/**")
+                        .permitAll()
                     .antMatchers("/api/auth/**")
                         .permitAll()
                     .antMatchers("/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability")

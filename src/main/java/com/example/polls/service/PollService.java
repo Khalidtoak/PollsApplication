@@ -44,6 +44,7 @@ public class PollService {
 
     @Autowired
     private UserRepository userRepository;
+ 
 
     private static final Logger logger = LoggerFactory.getLogger(PollService.class);
 
@@ -143,8 +144,7 @@ public class PollService {
 
         return new PagedResponse<>(pollResponses, userVotedPollIds.getNumber(), userVotedPollIds.getSize(), userVotedPollIds.getTotalElements(), userVotedPollIds.getTotalPages(), userVotedPollIds.isLast());
     }
-
-
+    //create a poll
     public Poll createPoll(PollRequest pollRequest) {
         Poll poll = new Poll();
         poll.setQuestion(pollRequest.getQuestion());
