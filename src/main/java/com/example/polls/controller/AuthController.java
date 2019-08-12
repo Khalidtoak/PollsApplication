@@ -54,7 +54,8 @@ public class AuthController {
 	    					loginRequest.getPassword()));
 	    	SecurityContextHolder.getContext().setAuthentication(authentication);
 	    	String jwtToken = tokenProvider.generateToken(authentication);
-	    	return ResponseEntity.ok(new JwtAuthenticationResponse(jwtToken));
+	    	return ResponseEntity.ok(new JwtAuthenticationResponse(jwtToken
+	    			, "User Signed in successfully", true));
 
 	    }
 	    @SuppressWarnings({ "unchecked", "rawtypes" })
@@ -65,8 +66,8 @@ public class AuthController {
 	    				HttpStatus.BAD_REQUEST);
 	    	}
 	    	if(userRepository.existsByEmail(signUpRequest.getEmail())) {
-	    		return new ResponseEntity(new ApiResponse(false, 
-	    				"This email is registered on this plaform alredy"), HttpStatus.BAD_REQUEST);
+	    		return new ResponseEntity(new JwtAuthenticationResponse("", 
+	    				"This email is registered on this plaform alredy", false), HttpStatus.BAD_REQUEST);
 	    	}
 	    	// Create user
 	    	User user = new User(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getEmail(), 
@@ -86,7 +87,8 @@ public class AuthController {
 		    					signUpRequest.getPassword()));
 		    	SecurityContextHolder.getContext().setAuthentication(authentication);
 		    	String jwtToken = tokenProvider.generateToken(authentication);
-		    	return ResponseEntity.ok(new JwtAuthenticationResponse(jwtToken));
+		    	return ResponseEntity.ok(new JwtAuthenticationResponse(jwtToken
+		    			, "User registered successfully", true));
 	    }
 
 }
